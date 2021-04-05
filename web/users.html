@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ISDP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="location.css">
+        <script src="users.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+
+    <!-- Navigation -->
+    <div class="fixed-top" id="NavBar">
+        <header class="topbar">
+            <div class="container">
+                <div class="row">
+                    <!-- social icon-->
+                    <div class="col-sm-12">
+                        <ul class="social-network">
+                            <li><a class="waves-effect waves-dark" href="#"></a></li>
+                            <li><a class="waves-effect waves-dark" href="#" id="userName"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+            <div class="container">
+                <a class="navbar-brand" rel="nofollow" target="_blank" href="" style="text-transform: uppercase;">BullsEye</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Item</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html" id="imHere">User</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="location.html">Location</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="inventory.html">Inventory</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="courier.html">Courier</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Deliveries.html">Deliveries</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Navigation -->
+
+
+
+    <body>
+        <div id="main">
+            <div id="searchDiv">
+                <div class="search"><input type="text" id="userSeach" onkeyup="search('userSeach', 0)" placeholder="Search for user id.." title="Type in a name"></div>
+                <div class="search"><input type="text" id="locSearch" onkeyup="search('locSearch', 1)" placeholder="Search for Location id.." title="Type in a name"></div>
+                <div class="search"><input type="text" id="roleSearch" onkeyup="search('roleSearch', 2)" placeholder="Search for Role id.." title="Type in a name"></div>
+            </div><br><br>
+            <div id="buttons">
+                <div id="divLogOut">
+                    <button id="logOutBtn" class="hidden">Log Out</button>
+                </div>
+                <button id="updateButton" class="button hidden">Update User</button>
+                <button id="addButton" class="button hidden">Add User</button>
+                <button id="changeButton" class="button hidden">Change Active Status</button>
+            </div>
+            <br>
+            <div id="AddUpdatePanel" class="hidden">
+
+                <div class="formLabel">User ID:<br><input id="userID" disabled type="text"></div>
+                <div class="formLabel hidden" id="firstPassword">Password:<br><input id="password" disabled pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="8 long 1 upper 1 number" ></div>
+                <div class="formLabel hidden" id="confirmPassword">Confirm Password:<br><input id="passwordTwo"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="8 long 1 upper 1 number"></div>
+
+                <div class="formLabel">Active:<br><input id="active" type="text"></div>
+                <div class="formLabel">Location ID:<br>
+                    <select id="locationID">
+                        <option>CORP</option>
+                        <option>DIEP</option>
+                        <option>FRED</option>
+                        <option>MCTN</option>
+                        <option>MIRA</option>
+                        <option>OROM</option>
+                        <option>STJN</option>
+                        <option>SUSX</option>
+                        <option>VHCL</option>
+                        <option>WARE</option>
+                    </select>
+                </div>
+                <div class="formLabel">Role ID:<br>
+                    <select id="roleID">
+                        <option>DB Admin</option>
+                        <option>Driver</option>
+                        <option>Store Manager</option>
+                        <option>Upper Management</option>
+                        <option>Warehouse Manager</option>
+                        <option>Warehouse Worker</option>
+                    </select>
+                </div>
+                <br><br><br>
+                <button class="button" id="DoneButton">Done</button>
+            </div>
+        <div id="records">Records: </div>
+            <div id="tablediv">
+
+            </div>
+            <script>
+                function search(name, number) {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById(name);
+                    filter = input.value === "."|| input.value === "/" ? input.value : input.value.toUpperCase();
+                    table = document.getElementById("users");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[number];
+                        if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+                    let trArr = document.querySelectorAll("tr");
+                    let count = 0;
+                    for (var i = 0; i < trArr.length; i++) {
+                        if (trArr[i].style.display == "") {
+                            count++;
+                        }
+                    }
+                    console.log(count);
+                    document.querySelector("#records").innerHTML = "Records: ";
+                    document.querySelector("#records").innerHTML += (count - 1).toString();
+                }
+            </script>
+        </div>
+    </body>
+</html>

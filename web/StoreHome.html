@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ISDP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="location.css">
+        <script src="StoreHome.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    </head>
+
+
+    <!-- Navigation -->
+    <div class="fixed-top" id="NavBar">
+        <header class="topbar">
+            <div class="container">
+                <div class="row">
+                    <!-- social icon-->
+                    <div class="col-sm-12">
+                        <ul class="social-network">
+                            <li><a class="waves-effect waves-dark" href="#"></a></li>
+                            <li><a class="waves-effect waves-dark" href="#" id="userName"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+            <div class="container">
+                <a class="navbar-brand" rel="nofollow" target="_blank" href="" style="text-transform: uppercase;">BullsEye</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html" id="imHere">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Item</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html">User</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="location.html">Location</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="inventory.html">Inventory</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="courier.html" >Courier</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Deliveries.html">Deliveries</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Navigation -->
+
+
+    <body>
+
+        <div id="orderConatiner"> 
+        
+
+        
+        <div id="storeButtons">
+            <button class="button hidden" id="back"> Back </button>
+            <button class="button hidden" id="createOrder">Create Order
+            </button>
+            <button class="button" id="createLoss">Create Loss
+            </button>
+            <button class="button" id="createReturn">Create Return
+            </button>
+            <button class="button hidden" id="submitLoss">Submit Loss
+            </button>
+            <button class="button hidden" id="submitReturn">Submit Return
+            </button>
+            <button class="button" id="viewAll">View All Store Orders
+            </button>
+            <div id="searchButtons" class="hidden">
+                <div class="search"><input type="text" id="nameSeach" onkeyup="search('nameSeach', 1)" placeholder="Search for names.." title="Type in a name"></div>
+                <div class="search"><input type="text" id="idSearch" onkeyup="search('idSearch', 0)" placeholder="Search for ID's.." title="Type in a name"></div>
+                <div class="search"><input type="text" id="skuSearch" onkeyup="search('skuSearch', 2)" placeholder="Search for sku.." title="Type in a name"></div>
+                <div class="search"><input type="text" id="CategorySearch" onkeyup="search('CategorySearch', 4)" placeholder="Search for Category.." title="Type in a name"></div>
+                <div class="search"><input type="text" id="descSearch" onkeyup="search('descSearch', 5)" placeholder="Search for Desc.." title="Type in a name"></div>
+            </div>
+            <div id="itemQuantityInputDiv" class="hidden">
+            Number of items: &nbsp;&nbsp;<input id="itemQuantityInput" type="number"></input>
+            <br>And OR<br> Number of Cases: &nbsp;&nbsp;<input id="caseQuantityInput" type="number"></input>
+            </div>
+
+        <div id="changeOrderButtons" class="hidden">
+            <button class="button" id="scan"> Scan </button>
+            <input id="scanSku"></input>
+            <button class="button" id="makeChanges"> Make Changes </button>
+            <button class="button" id="submitChange"> Submit Change </button>
+        </div>
+        <div id="changesDiv" class="hidden">
+            Item Quantity: &nbsp;&nbsp;<input id="itemQuantity" class="input" type="number" min="1"></input>
+        </div>
+
+
+        <div id="orderdiv">
+        </div>
+        </div>
+        <div id="MainTables" class="hidden">
+            <div id="searchDiv">
+                <div class="userName"></div>
+                <button class="button" id="submitOrder">Submit Order</button>
+                <button class="button" id="emergencyCancelButton">Cancel Order</button>
+
+            </div>
+            <div id="tablesdiv">
+                <h2 id="headerItems">Items</h2><h2 id="headerOrder">Order</h2>
+                <div id="tablediv">.
+                </div>
+                <table id='newOrderTable'>
+                    <tr>
+                        <th scope='col' onclick="sortTable()">Item ID</th> 
+                        <th onclick='sortTable()'>Name</th>
+                        <th onclick="sortTable()">Sku</th>
+                        <th onclick='sortTable()'>Description</th>
+                        <th onclick='sortTable()'>Category</th>
+                        <th>Weight</th>
+                        <th>Cost Price</th>
+                        <th>Retail Price</th>
+                        <th>Supplier ID</th>
+                        <th>Quantity</th>
+                        <th>Warehouse Quantity</th>
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
+
+    </body>
+    <script>
+        function search(name, number) {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById(name);
+            filter = input.value === "." || input.value === "/" ? input.value : input.value.toUpperCase();
+            ;
+            table = document.getElementById("ordersTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[number];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            let trArr = document.querySelectorAll("tr");
+            let count = 0;
+            for (var i = 0; i < trArr.length; i++) {
+                if (trArr[i].style.display == "") {
+                    count++;
+                }
+            }
+            console.log(count);
+        }
+    </script>
+</html>

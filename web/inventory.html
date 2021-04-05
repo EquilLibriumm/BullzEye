@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ISDP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="location.css">
+        <script src="inventory.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    </head>
+
+    <!-- Navigation -->
+    <div class="fixed-top" id="NavBar">
+        <header class="topbar">
+            <div class="container">
+                <div class="row">
+                    <!-- social icon-->
+                    <div class="col-sm-12">
+                        <ul class="social-network">
+                            <li><a class="waves-effect waves-dark" href="#" id="userName"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+            <div class="container">
+                <a class="navbar-brand" rel="nofollow" target="_blank" href="" style="text-transform: uppercase;">BullsEye</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Item</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html">User</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="location.html">Location</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="inventory.html" id="imHere">Inventory</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="courier.html">Courier</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="Deliveries.html">Deliveries</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Navigation -->
+
+
+
+    <body>
+        <div id="main">
+            <div id="lid"></div>
+
+            <div id="searchDiv" class="form-group">
+                <div class="search"><input class="form-group" type="text" id="itemIDSeach" onkeyup="search('itemIDSeach', 0)" placeholder="Search for Item ID.."></div>
+                <div class="search">
+                    <select id="locationIDSearch" onchange="search('locationIDSearch', 2)" >
+                        <option>CORP</option>
+                        <option>DIEP</option>
+                        <option>FRED</option>
+                        <option>MCTN</option>
+                        <option>MIRA</option>
+                        <option>OROM</option>
+                        <option>STJN</option>
+                        <option>SUSX</option>
+                        <option>VHCL</option>
+                        <option>WARE</option>
+                    </select>
+                </div>
+                <div class="search"><input class="form-group" type="text" id="skuSearch" onkeyup="search('skuSearch', 3)" placeholder="Search for Sku.."></div>
+                <div class="search"><input class="form-group" type="text" id="itemNameSearch" onkeyup="search('itemNameSearch', 1)" placeholder="Search for Item .."></div>
+                <div class="search"><input class="form-group" type="text" id="categoryNameSearch" onkeyup="search('categoryNameSearch', 4)" placeholder="Search for Category Name.."></div>
+                <div class="search"><input class="form-group" type="text" id="descriptionSearch" onkeyup="search('descriptionSearch', 5)" placeholder="Search for Description.."></div>
+            </div>
+            
+            <div id="buttons">
+                <button id="viewAll" class="button">View All Inventory</button>
+                <button id="updateButton" class="button hidden">Update Inventory Item</button>
+            </div>
+            <br><br><br>
+            <div id="AddUpdatePanel"class="hidden">
+
+                <div class="formLabel">Item ID:<input id="itemID" disabled type="text"></div>
+                <div class="formLabel">Item Name: <input id="itemName" disabled type="text"></div>
+
+                <div class="formLabel">Sku:<br><input id="sku" disabled type="text"></div>
+                <div class="formLabel">Category Name:<br><input id="categoryName" disabled type="text"></div>
+                <div class="formLabel">Description:<br><input id="description" disabled type="text"></div>
+                <div class="formLabel">Quantity:<br><input id="quantity" disabled type="text"></div>
+                <div class="formLabel">Weight:<br><input id="weight" disabled type="text"></div>
+                <div class="formLabel">Case Size:<br><input id="caseSize" disabled type="text"></div>
+                <div class="formLabel">Cost Price:<br><input id="costPrice" disabled type="number"></div>
+                <div class="formLabel">Retail Price:<br><input id="retailPrice" disabled type="text"></div>
+                <div class="formLabel">Supplier ID:<br><input id="supplierID" disabled type="number"></div>
+                <div class="formLabel">Reorder Threshold:<br><input id="reorderThreshold"  type="text"></div>
+                <div class="formLabel">Reorder Level:<br><input id="reorderLevel"  type="number"></div>
+                <div class="formLabel">Location ID:<br>
+                    <select id="locationID" disabled>
+                        <option>CORP</option>
+                        <option>DIEP</option>
+                        <option>FRED</option>
+                        <option>MCTN</option>
+                        <option>MIRA</option>
+                        <option>OROM</option>
+                        <option>STJN</option>
+                        <option>SUSX</option>
+                        <option>VHCL</option>
+                        <option>WARE</option>
+                    </select></div>
+                <button class="button" id="DoneButton">Done</button>
+            </div>
+            <div id="records">Records: </div>
+            <div id="tablediv">
+            </div>
+            <script>
+                //                Search
+                function search(name, number) {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById(name);
+                    filter = input.value === "." || input.value === "/" ? input.value : input.value.toUpperCase();
+                    table = document.getElementById("inventory");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[number];
+                        if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+                    //                    Re calculate total records
+                    let trArr = document.querySelectorAll("tr");
+                    let count = 0;
+                    for (var i = 0; i < trArr.length; i++) {
+                        if (trArr[i].style.display == "") {
+                            count++;
+                        }
+                    }
+                    console.log(count);
+                    document.querySelector("#records").innerHTML = "Reco                           rds: " + (count - 1).toString();
+                    ;
+                }
+            </script>
+        </div>
+    </body>
+</html>
+

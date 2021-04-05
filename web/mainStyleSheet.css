@@ -1,0 +1,19 @@
+body {
+}
+table, td, th {
+    border-collapse: collapse;
+    text-align: center !important;
+}
+table{
+    border: solid thin black;
+    border-radius: 25px;
+}
+.highlighted{
+    background-color: grey;
+}
+.hidden{
+    display: none;
+}
+th:hover{
+    cursor:pointer;
+}

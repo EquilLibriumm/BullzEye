@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ISDP</title>
+
+        <link rel="stylesheet" href="location.css">
+        <script src="WarehouseManagerHome.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+
+    <!-- Navigation -->
+    <div class="fixed-top" id="NavBar">
+        <header class="topbar">
+            <div class="container">
+                <div class="row">
+                    <!-- social icon-->
+                    <div class="col-sm-12">
+                        <ul class="social-network">
+                            <li><a class="waves-effect waves-dark" href="#"></a></li>
+                            <li><a class="waves-effect waves-dark" href="#" id="userName"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+            <div class="container">
+                <a class="navbar-brand" rel="nofollow" target="_blank" href="" style="text-transform: uppercase;">BullsEye <p id="userName"></p></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html" id="imHere">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Item</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html">User</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="location.html">Location</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="inventory.html">Inventory</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="courier.html">Courier</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="Deliveries.html" >Deliveries</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Navigation -->
+
+
+    <body>
+        <h1>BullsEye</h1>
+            <div id="buttons">
+            </div>
+            <div id="orderConatiner">
+        
+            <h2>Store Orders</h2>
+
+            <div id="changeOrderButtons" class="hidden">
+            <button class="button" id="back"> Back </button>
+            <input id="scanSku"></input>
+            <button class="button" id="scan"> Scan </button>
+            <button class="button" id="makeChanges"> Make Changes </button>
+            <button class="button" id="submitChange"> Submit Change </button>
+            <select id="selectReturn">
+            <option>KEEP</option>
+            <option>DISCARD</option>
+            <option>RETURN to SUPPLIER</option>
+            </select>
+            <button class="button" id="processReturn"> Process Return </button>
+            </div>
+                <div id="searchDivManager">
+                    <div class="userName"></div>
+                    <div class="search">Transaction ID: <input type="text" id="transactionID" onkeyup="search('transactionID', 0)" placeholder="Search for Transaction IDs..">
+                    </div>
+                    <div class="search">Type: 
+                        <select type="text" id="transactionType" onchange="search('transactionType', 1)">
+                            <option>ORDER</option>
+                            <option>BACKORDER</option>
+                            <option>DAMAGE</option>
+                            <option>EMERGENCY</option>
+                            <option>GAIN</option>
+                            <option>LOSS</option>
+                            <option>RETURN</option>
+                            <option>SALE</option>
+                        </select>
+                    </div>
+                    <div class="search">Location: 
+                        <select type="text" id="locationID" onchange="search('locationID', 2)">
+                            <option>STJN</option>
+                            <option>MCTN</option>
+                            <option>DIEP</option>
+                            <option>FRED</option>
+                            <option>OROM</option>
+                            <option>MIRA</option>
+                            <option>SUSX</option>
+                        </select>
+                    </div>
+            </div>
+            <div id="changesDiv" class="hidden">
+            Item Quantity: &nbsp;&nbsp;<input id="itemQuantity" class="input" type="number" min="1"></input>
+            Status: &nbsp;&nbsp;<select id="status">
+            <option>NEW</option>
+            <option>READY</option>
+            <option>PROCESSING</option>
+            <option>SUBMITTED</option>
+            <option>IN TRANSIT</option>
+            <option>DELIVERED</option>
+            <option>COMPLETE</option>
+            </select>
+            </div>
+            <div id="orderdiv">
+            </div>
+        </div>
+    </body>
+    <script>
+        function search(name, number) {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById(name);
+            filter = input.value === "." || input.value === "/" ? input.value : input.value.toUpperCase();
+            ;
+            table = document.getElementById("ordersTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[number];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            let trArr = document.querySelectorAll("tr");
+            let count = 0;
+            for (var i = 0; i < trArr.length; i++) {
+                if (trArr[i].style.display == "") {
+                    count++;
+                }
+            }
+            console.log(count);
+        }
+    </script>
+</html>

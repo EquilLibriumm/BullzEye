@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ISDP</title>
+
+        <link rel="stylesheet" href="location.css">
+        <script src="DeliveryHome.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsFxwcCxaidy_9wpjubg2E-KRhT7P1SsI&callback=initMap"
+            async defer></script>
+
+
+        <!------ Include the above in your HEAD tag ---------->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+
+    <!-- Navigation -->
+    <div class="fixed-top" id="NavBar">
+        <header class="topbar">
+            <div class="container">
+                <div class="row">
+                    <!-- social icon-->
+                    <div class="col-sm-12">
+                        <ul class="social-network">
+                            <li><a class="waves-effect waves-dark" href="#"></a></li>
+                            <li><a class="waves-effect waves-dark" href="#" id="userName"></a></li>
+                            
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Log Out</a>
+                        </li>
+                        </ul>
+                         
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+            <div class="container">
+                <a class="navbar-brand" rel="nofollow" target="_blank" href="" style="text-transform: uppercase;">BullsEye</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item active">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Navigation -->
+
+
+    <body>
+        <h1>BullsEye</h1>
+        <div id="main">
+            <button class="button hidden" id="back"> Back </button>
+        </div>
+        <h2 id="totalWeight">
+        </h2>
+        <h3 id="vehicle">
+        </h3>
+        <div id="orderdiv">
+        </div>
+        <div id="map" class="hidden">
+        </div>
+
+    </body>
+</html>
